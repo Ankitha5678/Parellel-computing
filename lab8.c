@@ -10,6 +10,7 @@ int main(int argc, char** argv){
 
     MPI_Scatter(data,1,MPI_INT,&recv,1,MPI_INT,0,MPI_COMM_WORLD);
     recv+=1;
+    MPI_Gather(&recv,1,MPI_INT,data,1,MPI_INT,0,MPI_COMM_WORLD);
 
     if(rank==0){
         printf("Gathered data: ");
